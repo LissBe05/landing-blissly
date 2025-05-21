@@ -1,10 +1,25 @@
-import Image from 'next/image';
+'use client'
+
+import Image from 'next/image'
+import { motion } from 'framer-motion'
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'
+import Link from 'next/link'
+
 
 export default function Hero() {
   return (
-    <section className="flex flex-col-reverse md:flex-row items-center justify-between bg-pink-50 px-10 py-10">
+    <section
+      id="home"
+      className="pt-24 flex flex-col-reverse md:flex-row items-center justify-between bg-pink-50 px-10 py-10"
+    >
       {/* LEFT */}
-      <div className="md:w-1/2 space-y-6">
+      <motion.div
+        className="md:w-1/2 space-y-6"
+        initial={{ opacity: 0, x: -50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
         <h1 className="text-4xl md:text-5xl font-bold leading-tight">
           it’s not just <br />
           food <span className="text-primary">,</span> it’s an <br />
@@ -39,16 +54,24 @@ export default function Hero() {
             ))}
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* RIGHT */}
-      <div className="relative md:w-1/2 mb-10 md:mb-0 flex justify-center">
+      <motion.div
+        className="relative md:w-1/2 mb-10 md:mb-0 flex justify-center"
+        initial={{ opacity: 0, x: 50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
+
+     
         <div className="relative w-[250px] h-[250px] md:w-[300px] md:h-[300px]">
           <Image
             src="/spaghetti.jpg"
             alt="Spaghetti"
             fill
-            className="rounded-full object-cover w-500 h-500"
+            className="rounded-full object-cover"
           />
           {/* Discount badge */}
           <div className="absolute top-0 -left-5 bg-white w-25 h-10 text-red-600 px-3 py-1 rounded-xl text-xs font-bold shadow-md">
@@ -56,7 +79,8 @@ export default function Hero() {
             <span className="block text-center -mt-1">Discount</span>
           </div>
         </div>
-      </div>
+      </motion.div>
+
     </section>
-  );
+  )
 }
