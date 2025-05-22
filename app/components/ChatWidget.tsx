@@ -12,8 +12,8 @@ export default function ChatWidget() {
   const handleSend = () => {
     if (!input.trim()) return;
 
-    const userMessage = { from: 'user', text: input };
-    const botResponse = {
+    const userMessage: { from: 'user' | 'bot'; text: string } = { from: 'user', text: input };
+    const botResponse: { from: 'user' | 'bot'; text: string } = {
       from: 'bot',
       text: "Merci pour votre message ! Nous reviendrons vers vous bientôt. 😊",
     };
@@ -29,6 +29,7 @@ export default function ChatWidget() {
         <button
           onClick={toggleChat}
           className="bg-red-500 hover:bg-red-600 text-white p-4 rounded-full shadow-lg"
+          aria-label="Ouvrir le chat"
         >
           <FaComments size={20} />
         </button>
@@ -40,7 +41,7 @@ export default function ChatWidget() {
           {/* En-tête */}
           <div className="bg-red-500 text-white p-4 rounded-t-lg flex justify-between items-center">
             <h4 className="font-bold">Chat avec Blissly</h4>
-            <button onClick={toggleChat}>
+            <button onClick={toggleChat} aria-label="Fermer le chat">
               <FaTimes />
             </button>
           </div>

@@ -1,6 +1,7 @@
 'use client'
 import Slider from 'react-slick'
 import { FaStar } from 'react-icons/fa'
+import Image from 'next/image'
 
 const testimonials = [
   {
@@ -51,9 +52,11 @@ export default function Customers() {
         {testimonials.map((customer, index) => (
           <div key={index} className="px-4">
             <div className="bg-white p-6 rounded-2xl shadow-md max-w-xl mx-auto text-center">
-              <img
+              <Image
                 src={customer.avatar}
                 alt={customer.name}
+                width={80}
+                height={80}
                 className="w-20 h-20 rounded-full object-cover mx-auto mb-4"
               />
               <h3 className="font-semibold text-lg">{customer.name}</h3>

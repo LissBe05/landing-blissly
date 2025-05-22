@@ -2,10 +2,8 @@
 
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'
-import Link from 'next/link'
 
-
+/* eslint-disable react/no-unescaped-entities */
 export default function Hero() {
   return (
     <section
@@ -21,8 +19,8 @@ export default function Hero() {
         viewport={{ once: true }}
       >
         <h1 className="text-4xl md:text-5xl font-bold leading-tight">
-          it’s not just <br />
-          food <span className="text-primary">,</span> it’s an <br />
+          it's not just <br />
+          food <span className="text-primary">,</span> it's an <br />
           experience
         </h1>
 
